@@ -1,0 +1,10 @@
+from building import *
+
+cwd     = GetCurrentDir()
+src     = Glob('*.c')
+CPPPATH = [cwd]
+
+group = DefineGroup('aip650', src, depend = ['AIP650_USING_EXAMPLE'], CPPPATH = CPPPATH)
+
+Return('group')
+
