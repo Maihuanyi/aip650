@@ -10,9 +10,13 @@
 
 ``` 
 aip650
+├───examples                    // 例子的目录
+│   │───SConscript              // RT-Thread 默认的构建脚本
+│   └───test_aip650.c           // 测试例子的文件
 ├───inc                         // 头文件目录
 │   └───aip650.h                // API 接口头文件
 ├───src                         // 源码目录
+│   │───SConscript              // RT-Thread 默认的构建脚本
 │   └───aip650.c                // 主模块
 │   license                     // 软件包许可证
 │   README.md                   // 软件包使用说明
@@ -39,13 +43,13 @@ aip650
 - 功能 ：卸载aip650/tm1650
 - 返回 ：0--成功，其它--错误
 
-#### int aip650_setSegment(E_Segment segment, E_Bright_level level);
+#### int aip650_set_segment(E_Segment segment, E_Bright_level level);
 - 功能 ：设置数码管的段数及亮度
 - 参数 ：segment - 段数
 - 参数 ：level - 亮度
 - 返回 ：0--成功，其它--错误
 
-#### int aip650_writeNumber(E_Digit_Bit bit, E_Number number, int is_point);
+#### int aip650_write_number(E_Digit_Bit bit, E_Number number, int is_point);
 - 功能 ：显示数字
 - 参数 ：bit - 选择数码管位
 - 参数 ：number - 显示的数字
@@ -60,14 +64,14 @@ aip650
 |DG3|0x31|0x32|0x33|0x34|0x35|0x36|0x37|
 |DG4|0x41|0x42|0x43|0x44|0x45|0x46|0x47|
 
-#### char aip650_getKey(void);
+#### char aip650_get_key(void);
 - 功能 ：获取按键
 - 返回 ：按键的映射值
 
 ### 2.2获取组件
 
 - **方式1：**
-通过 *Env配置工具* 或 *RT-Thread studio* 开启软件包，根据需要配置各项参数；配置路径为 *RT-Thread online packages -> peripherals packages -> aip650* 
+通过 *Env配置工具* 或 *RT-Thread studio* 开启软件包，根据需要配置各项参数；配置路径为 *RT-Thread online packages -> peripherals packages -> aip650/tm1650* 
 
 
 ### 2.3配置参数说明

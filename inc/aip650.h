@@ -30,10 +30,10 @@ typedef enum {
 } E_Bright_level;
 
 typedef enum {
-    DIG0 = (0x68 >> 1),
-    DIG1 = (0x6A >> 1),
-    DIG2 = (0x6C >> 1),
-    DIG3 = (0x6E >> 1),
+    DIG1 = (0x68 >> 1),
+    DIG2 = (0x6A >> 1),
+    DIG3 = (0x6C >> 1),
+    DIG4 = (0x6E >> 1),
 } E_Digit_Bit;
 
 typedef enum {
@@ -68,7 +68,7 @@ int aip650_deinit(void);
  * @param level The level of brightness
  * @return If failed at -RT_ERROR, successed is RT_EOK
  */
-int aip650_setSegment(E_Segment segment, E_Bright_level level);
+int aip650_set_segment(E_Segment segment, E_Bright_level level);
 
 /*
  * @brief Write the number to aip650/tm1650
@@ -77,12 +77,24 @@ int aip650_setSegment(E_Segment segment, E_Bright_level level);
  * @param is_point Set the point to the bit
  * @return If failed at -RT_ERROR, successed is RT_EOK
  */
-int aip650_writeNumber(E_Digit_Bit bit, E_Number number, int is_point);
+int aip650_write_number(E_Digit_Bit bit, E_Number number, int is_point);
 
-/*
+/* The array key value
+ * ----------------------------------------------------------------------
+ * |             |  SG1 |   SG2 |   SG3 |   SG4 |   SG5 |   SG6 |   SG7 |
+ * ----------------------------------------------------------------------
+ * |    DIG1     | 0x11 |  0x12 |  0x13 |  0x14 |  0x15 |  0x16 |  0x17 |
+ * ----------------------------------------------------------------------
+ * |    DIG2     | 0x21 |  0x22 |  0x23 |  0x24 |  0x25 |  0x26 |  0x27 |
+ * ----------------------------------------------------------------------
+ * |    DIG3     | 0x31 |  0x32 |  0x33 |  0x34 |  0x35 |  0x36 |  0x37 |
+ * ----------------------------------------------------------------------
+ * |    DIG4     | 0x41 |  0x42 |  0x43 |  0x44 |  0x45 |  0x46 |  0x47 |
+ * ----------------------------------------------------------------------
+ *
  * @brief Get the key from aip650/tm1650
  * @return The result is the key table value
  */
-char aip650_getKey(void);
+char aip650_get_key(void);
 
 #endif
